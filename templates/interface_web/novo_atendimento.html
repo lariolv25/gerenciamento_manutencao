@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block titulo %}Novo atendimento · Gestão de Manutenção{% endblock %}
+{% block conteudo %}
+<h1>Novo atendimento fictício</h1>
+<form method="post" novalidate>
+  {% csrf_token %}
+  {% if form.non_field_errors %}<div role="alert">{{ form.non_field_errors }}</div>{% endif %}
+  {% for campo in form %}
+    <div class="campo">
+      <label for="{{ campo.id_for_label }}">{{ campo.label }}{% if campo.field.required %} *{% endif %}</label>
+      {{ campo }}
+      {% if campo.errors %}<div class="erro" role="alert">{{ campo.errors }}</div>{% endif %}
+    </div>
+  {% endfor %}
+  <button class="botao" type="submit">Salvar atendimento</button>
+  <a class="link-secundario" href="{% url 'inicio' %}">Cancelar</a>
+</form>
+{% endblock %}

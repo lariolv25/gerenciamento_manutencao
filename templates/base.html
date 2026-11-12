@@ -1,0 +1,26 @@
+{% load static %}
+<!doctype html>
+<html lang="pt-br">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block titulo %}Gestão de Manutenção{% endblock %}</title>
+  <link rel="stylesheet" href="{% static 'css/estilo.css' %}">
+</head>
+<body>
+  <header class="topo">
+    <nav class="largura" aria-label="Navegação principal">
+      <a class="marca" href="{% url 'inicio' %}">Gestão de Manutenção</a>
+      <a href="{% url 'novo_atendimento' %}">Novo atendimento</a>
+    </nav>
+  </header>
+  <main class="largura">
+    <p class="aviso"><strong>Protótipo acadêmico.</strong> Use somente dados fictícios. A prioridade manual e os estados estão em validação.</p>
+    {% if messages %}
+      <div role="status" aria-live="polite">{% for msg in messages %}<p class="mensagem">{{ msg }}</p>{% endfor %}</div>
+    {% endif %}
+    {% block conteudo %}{% endblock %}
+  </main>
+  <footer class="largura"><small>CSI410 — Engenharia de Software II · Esqueleto da Etapa 2</small></footer>
+</body>
+</html>

@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block titulo %}Atendimentos · Gestão de Manutenção{% endblock %}
+{% block conteudo %}
+<h1>Atendimentos</h1>
+<p>Lista em ordem de prioridade informada manualmente. Cálculo automático e capacidade diária ainda não foram validados.</p>
+<p><a class="botao" href="{% url 'novo_atendimento' %}">Registrar atendimento fictício</a></p>
+{% if atendimentos %}
+  <div class="tabela-rolagem">
+    <table>
+      <caption>Atendimentos fictícios cadastrados</caption>
+      <thead><tr><th scope="col">Cliente</th><th scope="col">Serviço</th><th scope="col">Prioridade</th><th scope="col">Estado</th><th scope="col">Prazo</th></tr></thead>
+      <tbody>
+        {% for a in atendimentos %}
+        <tr>
+          <td>{{ a.nome_cliente }}</td>
+          <td>{{ a.descricao }}</td>
+          <td><strong>{{ a.prioridade }}</strong></td>
+          <td>{{ a.estado }}</td>
+          <td>{{ a.prazo_previsto|date:'d/m/Y'|default:'Não definido' }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+{% else %}
+  <p>Nenhum atendimento fictício registrado. Utilize o botão acima para começar.</p>
+{% endif %}
+{% endblock %}
