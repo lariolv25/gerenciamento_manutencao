@@ -133,6 +133,6 @@ Nunca publique `.venv`, `db.sqlite3`, senhas ou dados reais do cliente.
 
 ## 9. Declaração de IA
 
-O projeto foi elaborado com auxílio do ChatGPT para gerar o esqueleto de código, estrutura,
-formulários, testes e instruções. A estudante é responsável por executar e validar localmente,
+O projeto foi elaborado com auxílio do ChatGPT para ajudar a implementar o esqueleto, estrutura,
+formulários, testes e instruções do código. Sou responsável por executar e validar localmente,
 registrar evidências e conferir que a implementação está alinhada às decisões aprovadas.
